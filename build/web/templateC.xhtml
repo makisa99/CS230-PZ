@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Project Name</title>
+        <meta name="author" content="The Author"></meta>
+    </h:head>
+    <!-- Add 50px padding top to the body for the navbar -->
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <b:navBar brand="JORO Organic" brandHref="/CS230-PZ/faces/index.xhtml" inverse="true" fixed="top">
+            <b:navbarLinks>
+                <b:navLink value="Home" href="/CS230-PZ/faces/index.xhtml"></b:navLink>
+            </b:navbarLinks>
+            <h:form styleClass="navbar-form navbar-right">
+                <div class="form-group">
+                    <b:button outcome="shopping_cart" value="Shopping cart" look="success" icon="shopping-cart" iconAlign="right"/>
+                </div>
+                <div class="form-group">
+                    <b:button outcome="login" value="Login" rendered="#{!login.loggedIn}" look="primary" icon="log-in" iconAlign="right"/>
+                </div> 
+                <div class="form-group">
+                    <b:button outcome="register" value="Register" rendered="#{!login.loggedIn}" look="primary" iconAlign="right"/>
+                </div>
+                <div class="form-group">
+                    <b:commandButton value="Logout" action="#{login.logout()}" rendered="#{login.loggedIn}" look="primary"  icon="log-out"  iconAlign="right"/>
+                </div>
+            </h:form>
+        </b:navBar>
+
+        <b:jumbotron>  
+            <b:container>
+                <div id="galleria" class="content">
+                    <ui:insert name="galleria"></ui:insert>
+                </div>
+            </b:container>
+
+        </b:jumbotron>
+        <b:container>
+            <div id="cont" class="content">
+                <ui:insert name="cont">Content</ui:insert>
+            </div>
+            <hr/>
+        </b:container>
+        <footer>
+            <div align="center">
+                <p>Super Mario 2020</p>
+            </div>
+        </footer>
+    </h:body>
+</html>
